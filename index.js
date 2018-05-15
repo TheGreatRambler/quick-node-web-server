@@ -1,8 +1,10 @@
 var express = require('express');
 var serveStatic = require('serve-static');
 var path = require('path');
+var errorhandler = require('express-error-handler');
 var compression = require('compression')
 var app = express();
+var server = require('http').createServer(app);
 var directory = path.join(__dirname, "public");
 
 app.use(compression({
@@ -13,8 +15,8 @@ app.use(serveStatic(directory, {
 	'index': ["index.html"]
 }));
 
-app.use(function(req, res, next) {
-	console.log("A 404!");
-});
+app.use(errorhandler({
+	server: server
+}));
 
-app.listen(80);
+server.listen(80);
