@@ -1,9 +1,12 @@
 {
   "name": "quick-node-web-server",
   "version": "0.0.0",
-  "description": "A quick node.js web server that can replae apache",
+  "description": "A quick node.js web server that can replace apache",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.16.3",
+    "serve-static": "^1.13.2",
+    "express-error-handler": "^1.1.0",
+    "compression": "^1.7.2"
   },
   "repository": {
     "type": "git",
